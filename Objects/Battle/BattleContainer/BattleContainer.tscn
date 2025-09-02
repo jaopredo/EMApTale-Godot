@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuteu7dplw8sn"]
+
+[ext_resource type="Script" uid="uid://b6tku13m0yk8" path="res://Objects/Battle/BattleContainer/battle_container.gd" id="1_f1aec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1aec"]
+size = Vector2(5.67588, 137.387)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhm07"]
+size = Vector2(6.30412, 320.388)
+
+[node name="BattleContainer" type="Node2D"]
+scale = Vector2(2.29722, 2.06214)
+script = ExtResource("1_f1aec")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_left = -161.0
+offset_top = -68.0
+offset_right = 160.0
+offset_bottom = 68.0
+border_color = Color(1, 1, 1, 1)
+border_width = 2.5
+editor_only = false
+
+[node name="ColorRect" type="ColorRect" parent="ReferenceRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 191.0
+offset_bottom = 104.0
+scale = Vector2(1.67857, 1.29676)
+color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-164.553, -0.802738)
+shape = SubResource("RectangleShape2D_f1aec")
+
+[node name="TopWall" type="StaticBody2D" parent="."]
+position = Vector2(-91.8502, 91.6524)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+position = Vector2(-163.665, -91.4149)
+shape = SubResource("RectangleShape2D_jhm07")
+
+[node name="BottomWall" type="StaticBody2D" parent="."]
+position = Vector2(-92.2856, 236.163)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
+position = Vector2(-163.665, -91.4149)
+shape = SubResource("RectangleShape2D_jhm07")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(328.658, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(-164.553, -0.802738)
+shape = SubResource("RectangleShape2D_f1aec")

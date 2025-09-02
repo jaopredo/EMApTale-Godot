@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://o45fb3qm5npw"]
+
+[ext_resource type="Texture2D" uid="uid://cxyrwq0euk8ll" path="res://Sprites/HUD/combat/orange-fight.png" id="1_ic2n7"]
+[ext_resource type="Script" uid="uid://wihlj1bj03tj" path="res://Objects/Battle/Menu/menu.gd" id="1_tweqo"]
+[ext_resource type="Texture2D" uid="uid://cvui86f8sk142" path="res://Sprites/HUD/combat/orange-act.png" id="2_j2v5i"]
+[ext_resource type="Texture2D" uid="uid://8al448r4u3km" path="res://Sprites/HUD/combat/yellow-fight.png" id="2_tweqo"]
+[ext_resource type="Texture2D" uid="uid://cyweplqbjgvad" path="res://Sprites/HUD/combat/orange-item.png" id="3_tweqo"]
+[ext_resource type="Texture2D" uid="uid://bnyl48cu4l231" path="res://Sprites/HUD/combat/orange-mercy.png" id="4_ep3n3"]
+[ext_resource type="Texture2D" uid="uid://eoup53pg53wp" path="res://Sprites/HUD/combat/yellow-act.png" id="5_u2j3t"]
+[ext_resource type="Texture2D" uid="uid://dnaqseuvmm7xn" path="res://Sprites/HUD/combat/yellow-item.png" id="7_pnmyp"]
+[ext_resource type="Texture2D" uid="uid://bd4ntb060i3jx" path="res://Sprites/HUD/combat/yellow-mercy.png" id="9_ssttt"]
+[ext_resource type="AudioStream" uid="uid://bdq8wo4uispks" path="res://Sounds/select.wav" id="10_pnmyp"]
+[ext_resource type="AudioStream" uid="uid://cybahn7vntkbm" path="res://Sounds/squeak.wav" id="11_ssttt"]
+
+[node name="Menu" type="HBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -293.0
+offset_top = -21.0
+offset_right = 293.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tweqo")
+
+[node name="FightButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("1_ic2n7")
+texture_focused = ExtResource("2_tweqo")
+stretch_mode = 5
+
+[node name="ActButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_j2v5i")
+texture_focused = ExtResource("5_u2j3t")
+stretch_mode = 5
+
+[node name="ItemButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_tweqo")
+texture_focused = ExtResource("7_pnmyp")
+stretch_mode = 5
+
+[node name="MercyButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_ep3n3")
+texture_focused = ExtResource("9_ssttt")
+stretch_mode = 5
+
+[node name="SelectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_pnmyp")
+
+[node name="SqueakSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ssttt")

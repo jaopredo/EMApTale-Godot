@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckmqwx1033b28"]
+
+[ext_resource type="Script" uid="uid://4shide38eg8i" path="res://Scenes/combat.gd" id="1_5y3t8"]
+[ext_resource type="PackedScene" uid="uid://cve80qw4ng3as" path="res://Objects/Player/Player.tscn" id="1_885kv"]
+[ext_resource type="Texture2D" uid="uid://quv7ymyoodj6" path="res://Sprites/HUD/battle-background.png" id="3_jr68y"]
+[ext_resource type="PackedScene" uid="uid://o45fb3qm5npw" path="res://Objects/Battle/Menu/Menu.tscn" id="4_rq8dt"]
+[ext_resource type="PackedScene" uid="uid://cuteu7dplw8sn" path="res://Objects/Battle/BattleContainer/BattleContainer.tscn" id="5_0dhp0"]
+
+[node name="Combat" type="Node2D"]
+script = ExtResource("1_5y3t8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Interface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -578.0
+offset_top = -327.0
+offset_right = 574.0
+offset_bottom = 323.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="Interface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0165517, 0.0165517, 0.0165517, 1)
+
+[node name="BattleBackground" type="TextureRect" parent="Interface"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 159.0
+offset_top = -276.0
+offset_right = -159.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_jr68y")
+
+[node name="Menu" parent="Interface" instance=ExtResource("4_rq8dt")]
+layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -478.0
+offset_top = -113.0
+offset_right = 478.0
+offset_bottom = -39.0
+grow_vertical = 0
+
+[node name="BattleContainer" parent="." instance=ExtResource("5_0dhp0")]
+position = Vector2(-9.53674e-07, 78)
+scale = Vector2(1.43959, 2.82285)
+
+[node name="Player" parent="." instance=ExtResource("1_885kv")]
+position = Vector2(-120, 56)
+scale = Vector2(1.19219, 1.19219)
