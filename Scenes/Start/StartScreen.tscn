@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjxh0p60doj1j"]
+
+[ext_resource type="Script" uid="uid://brhqlijfokoa8" path="res://Scenes/Start/start_screen.gd" id="1_jcjmr"]
+[ext_resource type="AudioStream" uid="uid://dta6j2oa8qwh1" path="res://Sounds/msc_the_field_of_dreams.mp3" id="1_rt3rp"]
+[ext_resource type="FontFile" uid="uid://vwxk44yn47n4" path="res://Fonts/Gamer.ttf" id="3_2s0uh"]
+[ext_resource type="AudioStream" uid="uid://cybahn7vntkbm" path="res://Sounds/squeak.wav" id="3_av1dp"]
+[ext_resource type="Theme" uid="uid://cljm6gjy11lfv" path="res://Themes/StartButton.tres" id="3_sk5sl"]
+[ext_resource type="AudioStream" uid="uid://bdq8wo4uispks" path="res://Sounds/select.wav" id="4_av1dp"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jcjmr")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_rt3rp")
+autoplay = true
+
+[node name="SqueakSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_av1dp")
+
+[node name="SelectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_av1dp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -68.0
+offset_right = 56.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_sk5sl")
+theme_override_fonts/font = ExtResource("3_2s0uh")
+theme_override_font_sizes/font_size = 50
+text = "Novo Jogo"
+
+[node name="LoadButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_sk5sl")
+theme_override_fonts/font = ExtResource("3_2s0uh")
+theme_override_font_sizes/font_size = 50
+text = "Carregar Jogo"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_sk5sl")
+theme_override_fonts/font = ExtResource("3_2s0uh")
+theme_override_font_sizes/font_size = 50
+text = "Opções"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_sk5sl")
+theme_override_fonts/font = ExtResource("3_2s0uh")
+theme_override_font_sizes/font_size = 50
+text = "Sair"
+
+[connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/LoadButton" to="." method="_on_load_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
