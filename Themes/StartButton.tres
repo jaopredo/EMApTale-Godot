@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cljm6gjy11lfv"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cljm6gjy11lfv"]
+
+[ext_resource type="FontFile" uid="uid://vwxk44yn47n4" path="res://Fonts/Gamer.ttf" id="1_gmqxx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t16y"]
 bg_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
@@ -13,6 +15,8 @@ bg_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
 bg_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
 
 [resource]
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_gmqxx")
 Button/styles/focus = SubResource("StyleBoxFlat_5t16y")
 Button/styles/hover = SubResource("StyleBoxFlat_gmqxx")
 Button/styles/normal = SubResource("StyleBoxFlat_qixbo")

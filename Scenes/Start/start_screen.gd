@@ -9,6 +9,9 @@ extends Control
 
 @onready var actual_option = 0
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+
 func change_option(opt):
 	options[actual_option].icon = null
 	$SqueakSound.play()
@@ -27,28 +30,20 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	print("START")
-
-func _on_start_button_mouse_entered() -> void:
-	change_option(0)
+	# I'll check if the player has a saved progress:
+	var player_has_save_progress = true
+	
+	if player_has_save_progress:
+		get_tree().change_scene_to_file("res://Scenes/Start/EreaseSaveConfirmation.tscn")
 
 
 func _on_load_button_pressed() -> void:
 	print("LOAD")
-	
-func _on_load_button_mouse_entered() -> void:
-	change_option(1)
 
 
 func _on_options_button_pressed() -> void:
 	print("OPTIONS")
 
-func _on_options_button_mouse_entered() -> void:
-	change_option(2)
-
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
-	
-func _on_exit_button_mouse_entered() -> void:
-	change_option(3)

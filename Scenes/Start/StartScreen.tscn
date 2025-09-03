@@ -78,11 +78,7 @@ theme_override_fonts/font = ExtResource("3_2s0uh")
 theme_override_font_sizes/font_size = 50
 text = "Sair"
 
-[connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/LoadButton" to="." method="_on_load_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

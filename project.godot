@@ -15,11 +15,16 @@ run/main_scene="uid://cjxh0p60doj1j"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SaveManager="*res://Resources/SaveManager.gd"
+
 [file_customization]
 
 folder_colors={
 "res://Fonts/": "red",
 "res://Objects/": "orange",
+"res://Resources/": "green",
 "res://Scenes/": "blue",
 "res://Sounds/": "purple",
 "res://Sprites/": "yellow",
