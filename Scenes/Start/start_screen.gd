@@ -11,6 +11,7 @@ extends Control
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	StarterScenesMenuMusic.play_music()
 
 func change_option(opt):
 	options[actual_option].icon = null
@@ -31,10 +32,12 @@ func _process(delta: float) -> void:
 
 func _on_start_button_pressed() -> void:
 	# I'll check if the player has a saved progress:
-	var player_has_save_progress = true
+	var player_has_save_progress = false
 	
 	if player_has_save_progress:
 		get_tree().change_scene_to_file("res://Scenes/Start/EreaseSaveConfirmation.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Start/PlayerName.tscn")
 
 
 func _on_load_button_pressed() -> void:

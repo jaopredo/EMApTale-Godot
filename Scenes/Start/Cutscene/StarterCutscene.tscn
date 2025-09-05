@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://bssjpctyff1k7"]
+
+[ext_resource type="Script" uid="uid://cv7rxl7xf83m0" path="res://Scenes/Start/Cutscene/starter_cutscene.gd" id="1_glmlg"]
+[ext_resource type="PackedScene" uid="uid://ceoeahh7ckunb" path="res://Objects/Text/SmartText.tscn" id="1_woome"]
+[ext_resource type="Texture2D" uid="uid://dccchwriqa5gh" path="res://Sprites/Cutscene/c11.png" id="2_8fppe"]
+[ext_resource type="AudioStream" uid="uid://c2tcprqubw347" path="res://Sounds/text_2.wav" id="4_okshe"]
+[ext_resource type="AudioStream" uid="uid://djwtg3qm5fuyu" path="res://Sounds/intro_history.mp3" id="5_okshe"]
+[ext_resource type="Texture2D" uid="uid://c7ciu8l32ql30" path="res://Sprites/Cutscene/logo1-bgp.png" id="6_qpp8v"]
+[ext_resource type="AudioStream" uid="uid://82qax2uqf16s" path="res://Sounds/intro_noise.ogg" id="7_hqxa0"]
+
+[node name="StarterCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_glmlg")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+
+[node name="ContextImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -275.0
+offset_right = 301.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8fppe")
+expand_mode = 1
+
+[node name="CutsceneText" parent="." instance=ExtResource("1_woome")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = 83.0
+offset_right = 319.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 50
+horizontal_alignment = 0
+vertical_alignment = 0
+TEXT = "ESSE TEXTO É UM TESTE"
+LETTER_SOUND = ExtResource("4_okshe")
+
+[node name="ChangeTextTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_okshe")
+autoplay = true
+
+[node name="FinalImpactSceneTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FinalSceneTimer" type="Timer" parent="."]
+wait_time = 1.8
+one_shot = true
+
+[node name="Logo" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_qpp8v")
+
+[node name="IntroNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hqxa0")
+
+[node name="ChangeSceneTimer" type="Timer" parent="."]
+
+[connection signal="text_endedup_showing" from="CutsceneText" to="." method="_on_cutscene_text_text_endedup_showing"]
+[connection signal="timeout" from="ChangeTextTimer" to="." method="_on_change_text_timer_timeout"]
+[connection signal="timeout" from="FinalImpactSceneTimer" to="." method="_on_final_impact_scene_timer_timeout"]
+[connection signal="timeout" from="FinalSceneTimer" to="." method="_on_final_scene_timer_timeout"]
+[connection signal="finished" from="IntroNoise" to="." method="_on_intro_noise_finished"]
+[connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_change_scene_timer_timeout"]

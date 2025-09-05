@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2ukx77wnggji"]
+
+[ext_resource type="AudioStream" uid="uid://dta6j2oa8qwh1" path="res://Sounds/msc_the_field_of_dreams.mp3" id="1_51e64"]
+[ext_resource type="Script" uid="uid://cwqygt73feinh" path="res://Globals/starter_scenes_menu_music.gd" id="2_7yw8x"]
+
+[node name="StarterScenesMenuMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_51e64")
+script = ExtResource("2_7yw8x")

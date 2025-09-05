@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 
 
 func _on_yes_pressed() -> void:
-	print("Sim")
+	get_tree().change_scene_to_file("res://Scenes/Start/PlayerName.tscn")
 
 
 func _on_no_pressed() -> void:
