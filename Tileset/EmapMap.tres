@@ -71,8 +71,6 @@ texture_region_size = Vector2i(20, 20)
 9:19/0 = 0
 11:19/size_in_atlas = Vector2i(1, 2)
 11:19/0 = 0
-12:22/size_in_atlas = Vector2i(3, 2)
-12:22/0 = 0
 13:19/size_in_atlas = Vector2i(2, 2)
 13:19/0 = 0
 15:19/size_in_atlas = Vector2i(2, 2)
@@ -175,6 +173,12 @@ texture_region_size = Vector2i(20, 20)
 19:16/0 = 0
 20:16/0 = 0
 20:15/0 = 0
+12:22/0 = 0
+12:23/0 = 0
+13:22/0 = 0
+13:23/0 = 0
+14:22/0 = 0
+14:23/0 = 0
 
 [resource]
 tile_size = Vector2i(20, 20)

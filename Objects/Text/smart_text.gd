@@ -4,7 +4,7 @@ signal text_endedup_showing
 
 @export var TEXT: String = ""
 @export var LETTERS_PER_SECOND: float = 0
-@export var LETTER_SOUND: AudioStream
+@export var LETTER_SOUND: AudioStream = null
 
 @onready var actual_index = 0
 
@@ -16,13 +16,15 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("accept"):
+	if Input.is_action_just_pressed("cancel"):
 		text = TEXT
 		text_endedup_showing.emit()
 		actual_index = TEXT.length()
 
 
-func restart(p_text: String, p_letters_per_second: int):
+func restart(p_text: String, p_letters_per_second: int, p_sound: AudioStream = null):
+	LETTER_SOUND = p_sound
+	$LetterSound.stream = LETTER_SOUND
 	TEXT = p_text
 	LETTERS_PER_SECOND = p_letters_per_second
 	text = ""

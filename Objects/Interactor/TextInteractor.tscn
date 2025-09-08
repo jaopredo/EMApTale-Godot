@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://da154ru2jveth"]
+
+[ext_resource type="Script" uid="uid://ctmhra38rk2xw" path="res://Objects/Interactor/interactor.gd" id="1_8oug1"]
+[ext_resource type="AudioStream" uid="uid://org48t8g08b5" path="res://Sounds/text_1.wav" id="2_5de4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oetj3"]
+
+[node name="Interactor" type="Area2D"]
+script = ExtResource("1_8oug1")
+TEXT_SOUND = ExtResource("2_5de4x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oetj3")
+debug_color = Color(0.999205, 0, 0.120417, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
