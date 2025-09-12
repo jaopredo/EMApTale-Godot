@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp42hemgt1r7j"]
+
+[ext_resource type="Script" uid="uid://dsje4q38k2u04" path="res://Objects/Interactor/instant_interactor.gd" id="1_ds02b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6ftq"]
+
+[node name="InstantInteractor" type="Area2D"]
+script = ExtResource("1_ds02b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a6ftq")
+debug_color = Color(0, 0.65085, 0.0617755, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

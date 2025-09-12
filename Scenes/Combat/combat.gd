@@ -4,7 +4,7 @@ signal change_turn
 
 @onready var BattleContainer = get_node("BattleContainer")
 @onready var Menu = get_node("Interface/Menu")
-@onready var Player = get_node("Player")
+@onready var Player = preload("res://Objects/Player/Player.tscn")
 
 @onready var ACTUAL_TURN = "player"
 
@@ -24,9 +24,9 @@ func _on_change_turn() -> void:
 	if ACTUAL_TURN == "player":
 		ACTUAL_TURN = "boss"
 		
-		if not Player.is_inside_tree():
-			Player.position = $BattleContainer.position/2
-			get_tree().root.add_child(Player)
+		var player = Player.instantiate()
+		player.position = $BattleContainer.position/2
+		add_child(player)
 		
 		if Menu and Menu.is_inside_tree():
 			var temp_menu = Menu
@@ -38,7 +38,5 @@ func _on_change_turn() -> void:
 		if not Menu.is_inside_tree():
 			$Interface.add_child(Menu)
 			
-		if Player and Player.is_inside_tree():
-			var temp_player = Player
-			Player = Player.duplicate()
-			temp_player.queue_free()
+		var player = get_node('Player')
+		player.queue_free()

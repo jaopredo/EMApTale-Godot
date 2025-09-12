@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckmqwx1033b28"]
+[gd_scene load_steps=5 format=3 uid="uid://ckmqwx1033b28"]
 
 [ext_resource type="Script" uid="uid://4shide38eg8i" path="res://Scenes/Combat/combat.gd" id="1_5y3t8"]
-[ext_resource type="PackedScene" uid="uid://cve80qw4ng3as" path="res://Objects/Player/Player.tscn" id="1_885kv"]
 [ext_resource type="Texture2D" uid="uid://quv7ymyoodj6" path="res://Sprites/HUD/battle-background.png" id="3_jr68y"]
 [ext_resource type="PackedScene" uid="uid://o45fb3qm5npw" path="res://Objects/Battle/Menu/Menu.tscn" id="4_rq8dt"]
 [ext_resource type="PackedScene" uid="uid://cuteu7dplw8sn" path="res://Objects/Battle/BattleContainer/BattleContainer.tscn" id="5_0dhp0"]
@@ -56,10 +55,5 @@ grow_vertical = 0
 
 [node name="BattleContainer" parent="." instance=ExtResource("5_0dhp0")]
 position = Vector2(-9.53674e-07, 78)
-scale = Vector2(1.43959, 2.82285)
-
-[node name="Player" parent="." instance=ExtResource("1_885kv")]
-position = Vector2(-120, 56)
-scale = Vector2(1.19219, 1.19219)
 
 [connection signal="change_turn" from="." to="." method="_on_change_turn"]

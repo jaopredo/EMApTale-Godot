@@ -7,6 +7,9 @@ signal direction_changed(direction: String)
 ## Sinal que é disparado sempre que um diálogo/monólogo é acionado
 signal trigger_dialogue(text: String, sound: AudioStream, letters_per_second: int)
 
+## Sinal responsável por gerenciar quando o player pega um item no chão
+signal pick_item(item)
+
 
 @onready var SPEED = 100  # Velocidade do player
 @onready var previous_direction = "walking_right"
@@ -97,6 +100,15 @@ func hide_interaction_key():
 	$Keys.texture = null
 
 
+## Função que mostra a tecla de PEGAR ITEM
+func show_pick_item_key():
+	$Keys.texture = F_KEY_TEXTURE
+
+
+## Função que esconde a tecla de PEGAR ITEM
+func hide_pick_item_key():
+	$Keys.texture = null
+
 ## Função ligada ao sinal de INICIAR DIÁLOGO
 func _on_trigger_dialogue(text: String, sound: AudioStream, letters_per_second: int) -> void:
 	OpenedDialogue = MapDialogue.instantiate()
@@ -109,3 +121,7 @@ func _on_trigger_dialogue(text: String, sound: AudioStream, letters_per_second: 
 
 func _on_dialogue_text_endedup_showing():
 	dialogue_ended = true
+
+
+func _on_pick_item(item: Variant) -> void:
+	GlobalPlayerManager.add_item(item)

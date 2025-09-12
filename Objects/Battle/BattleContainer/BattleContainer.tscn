@@ -9,7 +9,7 @@ size = Vector2(5.67588, 137.387)
 size = Vector2(6.30412, 320.388)
 
 [node name="BattleContainer" type="Node2D"]
-scale = Vector2(2.29722, 2.06214)
+scale = Vector2(2.93, 1.54)
 script = ExtResource("1_f1aec")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]

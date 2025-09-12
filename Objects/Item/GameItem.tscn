@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://sxl6ikk22cbm"]
+
+[ext_resource type="Script" uid="uid://32585222kku4" path="res://Objects/Item/game_item.gd" id="1_jdyxf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldput"]
+
+[node name="GameItem" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_jdyxf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ldput")
+debug_color = Color(0.882441, 0.000336338, 0.81625, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

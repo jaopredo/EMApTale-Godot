@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cj2il6cx10no1" path="res://Sprites/Player/frisk.png" id="2_7jjxr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsfk0"]
-size = Vector2(13.5, 20)
+size = Vector2(17.5, 20)
 
 [sub_resource type="Animation" id="Animation_7jjxr"]
 length = 0.001
@@ -196,9 +196,11 @@ hframes = 4
 vframes = 4
 
 [node name="Keys" type="Sprite2D" parent="."]
+z_index = 11
 texture_filter = 1
 position = Vector2(0, -36)
 scale = Vector2(0.263158, 0.263158)
 
 [connection signal="direction_changed" from="." to="." method="_on_direction_changed"]
+[connection signal="pick_item" from="." to="." method="_on_pick_item"]
 [connection signal="trigger_dialogue" from="." to="." method="_on_trigger_dialogue"]
