@@ -183,6 +183,10 @@ z_index = 10
 position = Vector2(0, 78)
 scale = Vector2(1.44, 1)
 
+[node name="InventoryPosition" type="Marker2D" parent="Camera"]
+position = Vector2(-212, -117)
+scale = Vector2(0.369104, 0.369104)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_j6lng")
@@ -202,5 +206,6 @@ position = Vector2(0, -36)
 scale = Vector2(0.263158, 0.263158)
 
 [connection signal="direction_changed" from="." to="." method="_on_direction_changed"]
+[connection signal="drop_item" from="." to="." method="_on_drop_item"]
 [connection signal="pick_item" from="." to="." method="_on_pick_item"]
 [connection signal="trigger_dialogue" from="." to="." method="_on_trigger_dialogue"]

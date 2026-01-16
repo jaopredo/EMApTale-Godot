@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-## Sinal que é disparado sempre que o player
-## muda de direção
+## Sinal que é disparado sempre que o player muda de direção
 signal direction_changed(direction: String)
 
 ## Sinal que é disparado sempre que um diálogo/monólogo é acionado
@@ -9,6 +8,9 @@ signal trigger_dialogue(text: String, sound: AudioStream, letters_per_second: in
 
 ## Sinal responsável por gerenciar quando o player pega um item no chão
 signal pick_item(item)
+
+## Sinal responsável para dropar um item
+signal drop_item(id: int)
 
 
 @onready var SPEED = 100  # Velocidade do player
@@ -18,6 +20,8 @@ signal pick_item(item)
 @onready var Z_KEY_TEXTURE = load("res://Sprites/HUD/tecla_z.png")
 @onready var F_KEY_TEXTURE = load("res://Sprites/HUD/tecla_f.png")
 @onready var MapDialogue = preload("res://Objects/Dialogues/MapDialogue.tscn")
+@onready var Inventory = preload("res://Objects/Frisk/Inventory/Inventory.tscn")
+@onready var GameItem = preload("res://Objects/Item/GameItem.tscn")
 @onready var OpenedDialogue = null
 
 ## Variável que diz se o player
@@ -50,6 +54,10 @@ func get_actual_direction():
 			return "idle_down"
 
 
+func _ready() -> void:
+	GlobalPlayerManager.Frisk = self
+
+
 func _physics_process(delta: float) -> void:
 	if can_move:  # Se o player pode se mover
 		# Checo a direção no eixo Y que ele está indo
@@ -73,10 +81,23 @@ func _physics_process(delta: float) -> void:
 		previous_direction = actual_direction
 		
 		move_and_slide()
+		
+		# Abrindo o inventário
+		if Input.is_action_just_pressed("inventory"):
+			var inv = Inventory.instantiate()
+			$Camera/InventoryPosition.add_child(inv)
+			can_move = false
 	else:
+		# Fechando a caixa de diálogo
 		if Input.is_action_just_pressed("cancel") and dialogue_ended:
 			OpenedDialogue.queue_free()
 			dialogue_ended = false
+			can_move = true
+		
+		# Fechando o inventário
+		var inv = $Camera/InventoryPosition.get_node("Inventory")
+		if Input.is_action_just_pressed("inventory") and inv:
+			inv.queue_free()
 			can_move = true
 
 
@@ -119,9 +140,27 @@ func _on_trigger_dialogue(text: String, sound: AudioStream, letters_per_second: 
 	can_move = false
 	$Camera/DialoguePosition.add_child(OpenedDialogue)
 
+
 func _on_dialogue_text_endedup_showing():
 	dialogue_ended = true
 
 
 func _on_pick_item(item: Variant) -> void:
 	GlobalPlayerManager.add_item(item)
+
+
+func _on_drop_item(id: int) -> void:
+	var item = GlobalPlayerManager.inventory[id]
+	var game_item = GameItem.instantiate()
+	game_item.item_id = item.item_id
+	game_item.item_name = item.item_name
+	game_item.item_description = item.item_description
+	game_item.item_type = item.item_type
+	game_item.item_properties = item.item_properties
+	game_item.texture = load(item.item_texture)
+	
+	var parent = get_tree().root.get_node('EMAp/YSort')
+	parent.add_child(game_item)
+	game_item.global_position = global_position
+	
+	GlobalPlayerManager.remove_item(id)

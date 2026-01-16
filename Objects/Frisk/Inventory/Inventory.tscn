@@ -1,0 +1,514 @@
+[gd_scene load_steps=7 format=3 uid="uid://xdycqx2suegu"]
+
+[ext_resource type="FontFile" uid="uid://vwxk44yn47n4" path="res://Fonts/Gamer.ttf" id="1_3pk4h"]
+[ext_resource type="Script" uid="uid://bwokufjcxoid5" path="res://Objects/Frisk/Inventory/inventory.gd" id="1_psaii"]
+[ext_resource type="Theme" uid="uid://cljm6gjy11lfv" path="res://Themes/StartButton.tres" id="3_oy8xi"]
+[ext_resource type="AudioStream" uid="uid://cybahn7vntkbm" path="res://Sounds/squeak.wav" id="4_fny4u"]
+[ext_resource type="Texture2D" uid="uid://brb1ogo31n5tj" path="res://Sprites/Player/hearts/heart.png" id="4_icufc"]
+[ext_resource type="AudioStream" uid="uid://bdq8wo4uispks" path="res://Sounds/select.wav" id="5_icufc"]
+
+[node name="Inventory" type="Control"]
+z_index = 11
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_psaii")
+
+[node name="PlayerInformations" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 254.0
+offset_top = 91.0
+offset_right = 464.0
+offset_bottom = 219.0
+
+[node name="ColorRect2" type="ColorRect" parent="PlayerInformations"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PlayerInformations"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+
+[node name="Name" type="Label" parent="PlayerInformations"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 132.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 50
+text = "Jotinha"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="PlayerInformations"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 47.0
+offset_right = 42.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 36
+text = "LV"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HP" type="Label" parent="PlayerInformations"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 65.0
+offset_right = 42.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 36
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Label" parent="PlayerInformations"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 85.0
+offset_right = 42.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 36
+text = "R$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level2" type="Label" parent="PlayerInformations"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 48.0
+offset_top = 47.0
+offset_right = 81.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 36
+vertical_alignment = 1
+
+[node name="HP2" type="Label" parent="PlayerInformations"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 48.0
+offset_top = 65.0
+offset_right = 81.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 36
+vertical_alignment = 1
+
+[node name="Money2" type="Label" parent="PlayerInformations"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 48.0
+offset_top = 85.0
+offset_right = 81.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 36
+vertical_alignment = 1
+
+[node name="Main" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 475.0
+offset_top = 91.0
+offset_right = 820.0
+offset_bottom = 555.0
+
+[node name="ColorRect2" type="ColorRect" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+
+[node name="InventoryMain" type="VBoxContainer" parent="Main"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = -14.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Items" type="VBoxContainer" parent="Main/InventoryMain"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Options" type="HBoxContainer" parent="Main/InventoryMain"]
+layout_mode = 2
+alignment = 1
+
+[node name="USE" type="Button" parent="Main/InventoryMain/Options"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_oy8xi")
+theme_override_font_sizes/font_size = 60
+text = "USAR"
+
+[node name="INFO" type="Button" parent="Main/InventoryMain/Options"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_oy8xi")
+theme_override_font_sizes/font_size = 60
+text = "INFO"
+
+[node name="DROP" type="Button" parent="Main/InventoryMain/Options"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_oy8xi")
+theme_override_font_sizes/font_size = 60
+text = "DROP"
+
+[node name="StatsMain" type="Control" parent="Main"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -223.0
+offset_right = -1.5
+offset_bottom = -182.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 50
+text = "\"Jotinha\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -170.0
+offset_right = -116.5
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 45
+text = "LV"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelSlot" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.5
+offset_top = -170.0
+offset_right = -72.5
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 45
+vertical_alignment = 1
+
+[node name="Attack" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -50.0
+offset_right = 13.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 45
+text = "AT 30"
+vertical_alignment = 1
+
+[node name="Weapon" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = 62.0
+offset_right = 161.5
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 45
+text = "WEAPON:"
+vertical_alignment = 1
+
+[node name="Armor" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = 94.0
+offset_right = 161.5
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 45
+text = "ARMOR:"
+vertical_alignment = 1
+
+[node name="Money" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = 127.0
+offset_right = 161.5
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 45
+text = "R$:"
+vertical_alignment = 1
+
+[node name="Defense" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -9.0
+offset_right = 45.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 45
+text = "DF 8"
+vertical_alignment = 1
+
+[node name="Experience" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 19.5
+offset_top = -50.0
+offset_right = 190.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 45
+text = "EXP 5"
+vertical_alignment = 1
+
+[node name="ExperienceForNextLevel" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 19.5
+offset_top = -9.0
+offset_right = 222.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 45
+text = "NEXT 20"
+vertical_alignment = 1
+
+[node name="HP" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -129.0
+offset_right = -116.5
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 45
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HPSlot" type="Label" parent="Main/StatsMain"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -129.0
+offset_right = -22.5
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3pk4h")
+theme_override_font_sizes/font_size = 45
+text = "30/30"
+vertical_alignment = 1
+
+[node name="Options" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 254.0
+offset_top = 231.0
+offset_right = 464.0
+offset_bottom = 426.0
+
+[node name="ColorRect2" type="ColorRect" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+
+[node name="OptionsBoxContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -75.5
+offset_right = 97.0
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Item" type="Button" parent="Options/OptionsBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_oy8xi")
+theme_override_font_sizes/font_size = 60
+text = "ITEM"
+icon = ExtResource("4_icufc")
+alignment = 2
+
+[node name="Stat" type="Button" parent="Options/OptionsBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_oy8xi")
+theme_override_font_sizes/font_size = 60
+text = "STAT"
+alignment = 2
+
+[node name="Squeak" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fny4u")
+
+[node name="Select" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_icufc")
+
+[connection signal="pressed" from="Main/InventoryMain/Options/USE" to="." method="_on_use_pressed"]
+[connection signal="pressed" from="Main/InventoryMain/Options/DROP" to="." method="_on_drop_pressed"]
+[connection signal="pressed" from="Options/OptionsBoxContainer/Item" to="." method="_on_item_pressed"]
+[connection signal="pressed" from="Options/OptionsBoxContainer/Stat" to="." method="_on_stat_pressed"]

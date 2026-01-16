@@ -47,7 +47,7 @@ extends Node
 		}
 	},
 	"chocolate-bar": {
-		"item_name": "Barra de Chocolate",
+		"item_name": "Chocolate",
 		"item_description": "Estava na sessão dos 'Quase Vencendo' do Pão de Açúcar",
 		"item_type": "miscellaneous",
 		"item_sprite": "res://Sprites/Items/chocolate-bar.png",
