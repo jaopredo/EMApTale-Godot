@@ -1,15 +1,26 @@
 extends CharacterBody2D
 
-@export var SPRITES = {
-	"heart": load("res://Sprites/Player/hearts/heart.png"),
-	"pinho_heart": load("res://Sprites/Player/hearts/pinho-heart.png"),
-	"soledad_heart": load("res://Sprites/Player/hearts/soledad-heart.png"),
-	"walter_heart": load("res://Sprites/Player/hearts/walter-heart.png"),
-	"yuri_heart": load("res://Sprites/Player/hearts/yuri-heart.png")
+enum HeartStates {
+	heart,
+	pinho_heart,
+	soledad_heart,
+	walter_heart,
+	yuri_heart
 }
 
+# Variáveis de sprites possíveis para o coração
+@export var SPRITES = {
+	HeartStates.heart: load("res://Sprites/Player/hearts/heart.png"),
+	HeartStates.pinho_heart: load("res://Sprites/Player/hearts/pinho-heart.png"),
+	HeartStates.soledad_heart: load("res://Sprites/Player/hearts/soledad-heart.png"),
+	HeartStates.walter_heart: load("res://Sprites/Player/hearts/walter-heart.png"),
+	HeartStates.yuri_heart: load("res://Sprites/Player/hearts/yuri-heart.png")
+}
+
+# Informações do coração
 @export var SPEED = 250
-@export var state = "heart"
+# Qual que é o estado do coração
+@export var state: HeartStates = HeartStates.heart
 
 func _physics_process(delta: float) -> void:
 	# Movendo o coração

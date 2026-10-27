@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c5bkqabkgki0x"]
+[gd_resource type="TileSet" format=3 uid="uid://c5bkqabkgki0x"]
 
 [ext_resource type="Texture2D" uid="uid://tao5lygbkml4" path="res://Tileset/EMApTale_Sprites_Remade.png" id="1_dvkp2"]
 
